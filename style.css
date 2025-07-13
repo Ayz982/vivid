@@ -1,0 +1,292 @@
+/* === Загальні стилі та змінні === */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #50e3c2;
+    --text-color: #333;
+    --light-gray: #f4f4f4;
+    --white-color: #ffffff;
+    --dark-blue: #3a75c4;
+    --danger-color: #e27d6b;
+    --font-family: 'Nunito', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.screen {
+    display: none;
+    padding: 40px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-wrapper {
+    text-align: center;
+}
+
+/* === Стилі тексту === */
+.main-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* === Кнопки === */
+.btn {
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* === Екран тесту === */
+#test-screen {
+    text-align: left;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+#progress-bar {
+    height: 10px;
+    width: 0%;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    transition: width 0.4s ease-in-out;
+}
+
+#question-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.option-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--white-color);
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    border-color: var(--primary-color);
+    background-color: #f0f6ff;
+    transform: translateX(5px);
+}
+
+/* === Екран результатів === */
+.disclaimer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fffbe6;
+    border-left: 5px solid #fcc419;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.result-card {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.result-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.result-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.result-card li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.result-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* === Модальне вікно === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: var(--white-color);
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* === Адаптивність === */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .screen {
+        padding: 25px;
+    }
+    .main-title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+     .main-title {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    .modal-content {
+        margin: 30% auto;
+    }
+}

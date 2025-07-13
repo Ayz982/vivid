@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест на виснаження: Знайди свою енергію</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <section id="welcome-screen" class="screen active">
+            <div class="content-wrapper">
+                <h1 class="main-title">Відновіть свою енергію</h1>
+                <h2 class="subtitle">Розкрийте приховані причини втоми</h2>
+                <p class="description">
+                    Відчуваєте постійну втому без видимої причини? Пройдіть цей тест, щоб зрозуміти, що може бути джерелом вашого виснаження, та отримайте практичні поради для відновлення сил.
+                </p>
+                <button id="start-btn" class="btn btn-primary">Почати тест</button>
+            </div>
+        </section>
+
+        <section id="test-screen" class="screen">
+            <div class="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="question-container">
+                </div>
+        </section>
+
+        <section id="results-screen" class="screen">
+            <div class="content-wrapper">
+                <h1 class="main-title">Ваші персональні результати</h1>
+                <p class="description">Нижче наведено найбільш ймовірні сфери, що впливають на ваш рівень енергії, та практичні кроки для їх покращення.</p>
+                <div id="results-content">
+                    </div>
+                <div class="disclaimer">
+                    <p><strong>Важливе застереження:</strong> Цей тест не є медичним діагнозом. Він призначений для саморефлексії та освітніх цілей. У разі збереження або погіршення симптомів, будь ласка, обов'язково зверніться до лікаря для професійної консультації та обстеження.</p>
+                </div>
+                 <button id="restart-btn" class="btn btn-secondary">Пройти тест ще раз</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="support-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="modal-text">Текст підтримки.</p>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
